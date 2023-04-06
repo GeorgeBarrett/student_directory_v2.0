@@ -86,3 +86,9 @@ def print_header
   puts "-------------"
 end
 
+def print_student_list
+  @students.each do |student|
+    puts "Name: #{student[:name]} (#{student[:cohort]} cohort)"
+  end
+end
+
