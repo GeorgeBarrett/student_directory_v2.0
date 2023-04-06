@@ -1,3 +1,5 @@
+require "csv"
+
 @students = []
 @cohorts = [
   "january",
@@ -57,4 +59,17 @@ def input_students
       @students << student
     end
   end
+end
+
+def save_students
+  puts "Please enter the file name and extension that you would like to save to"
+  filename = STDIN.gets.chomp
+  
+  CSV.open(filename, "wb") do |csv|
+    @students.each do |student|
+      student_data = [student[:name], student[:cohort]]
+      csv << student_data
+    end
+  end
+  puts "The student data has been saved"      
 end
