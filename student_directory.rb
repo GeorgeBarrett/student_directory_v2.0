@@ -140,3 +140,6 @@ def initial_file_load
     return if filename.nil?
   end
 end
+
+initial_file_load
+interactive_menu
