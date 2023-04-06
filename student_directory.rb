@@ -129,3 +129,14 @@ def user_options(selection)
     puts "I don't know what you meant, try again"
   end
 end
+
+def initial_file_load
+  filename = "students.csv"
+  if File.exists?(filename)
+    load_students(filename)
+    puts "Loaded #{@students.count} from #{filename}"
+  else 
+    puts "Sorry, #{filename} doesn't exist."
+    return if filename.nil?
+  end
+end
