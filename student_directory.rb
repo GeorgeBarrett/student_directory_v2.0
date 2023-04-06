@@ -81,3 +81,8 @@ def load_students(filename)
   end
 end
 
+def print_header
+  puts "The students of Villains Academy"
+  puts "-------------"
+end
+
