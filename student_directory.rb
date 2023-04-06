@@ -21,3 +21,10 @@ def print_menu
   puts "4. Load the list"
   puts "9. Exit"
 end
+
+def interactive_menu
+  loop do
+    print_menu
+    user_options(STDIN.gets.chomp)
+  end
+end
