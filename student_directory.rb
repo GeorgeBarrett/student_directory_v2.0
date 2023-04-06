@@ -73,3 +73,11 @@ def save_students
   end
   puts "The student data has been saved"      
 end
+
+def load_students(filename)
+  CSV.foreach(filename) do |row|
+  name, cohort = row
+  add_students(name, cohort)
+  end
+end
+
