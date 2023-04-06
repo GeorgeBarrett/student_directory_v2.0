@@ -101,3 +101,27 @@ def show_students
   print_student_list
   print_footer
 end
+
+def user_options(selection)
+  case selection
+  when "1"
+    input_students
+  when "2"
+    show_students
+  when "3"
+    save_students
+  when "4"
+    puts "Enter the name of the file you would like to load?"
+    filename = gets.chomp
+    if File.exists?(filename)
+      load_students(filename)
+      puts "Student data loaded from #{filename} and can now be shown by selecting option 2"
+    else 
+      puts "Sorry, #{filename} doesn't exist."
+    end
+  when "9"
+    exit   
+  else
+    puts "I don't know what you meant, try again"
+  end
+end
