@@ -28,3 +28,33 @@ def interactive_menu
     user_options(STDIN.gets.chomp)
   end
 end
+
+def input_students
+  
+  while true do
+    puts "Please enter the students you would like to add"
+    puts "type 'finished' when you are done"
+    name = STDIN.gets.chomp
+    cohort = ""
+  
+    break if name.downcase == "finished"
+  
+    puts "Please enter the cohort you would like to enroll this student on"
+    cohort = STDIN.gets.chomp
+  
+    while !@cohorts.include?(cohort.downcase) do
+      puts "I cannot enter #{name}, please enter a valid cohort"
+      cohort = STDIN.gets.chomp
+    end
+  
+    puts "Name: #{name}, Cohort: #{cohort}"
+    puts "If you'd like to add this student to the Villan Academy list, type 'yes'"
+    answer = STDIN.gets.chomp
+    if answer.downcase == "yes"
+      student = Hash.new('not specified')
+      student[:name] = name
+      student[:cohort] = cohort
+      @students << student
+    end
+  end
+end
