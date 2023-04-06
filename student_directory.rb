@@ -31,6 +31,10 @@ def interactive_menu
   end
 end
 
+def add_students(name, cohort)
+  @students << {name: name, cohort: cohort}    
+end
+
 def input_students
   
   while true do
